@@ -1,0 +1,47 @@
+{
+  "name": "@toowired/prompt-executor",
+  "description": "Execution engine for prompts",
+  "version": "1.0.0",
+  "created": "2025-02-08 11:28:03",
+  "author": {
+    "github": "toowiredd",
+    "valtown": "toowired"
+  },
+  "dependencies": [
+    "@toowired/prompt-types",
+    "@toowired/prompt-store"
+  ],
+  "methods": {
+    "execute": {
+      "input": {
+        "promptId": "string",
+        "variables": "object",
+        "options": {
+          "timeout": "number",
+          "maxTokens": "number",
+          "temperature": "number"
+        }
+      },
+      "output": "PromptExecution",
+      "error": "Error"
+    },
+    "validate": {
+      "input": {
+        "template": "string",
+        "variables": "object"
+      },
+      "output": {
+        "isValid": "boolean",
+        "errors": "string[]"
+      }
+    },
+    "getHistory": {
+      "input": {
+        "promptId": "string",
+        "limit": "number"
+      },
+      "output": "PromptExecution[]",
+      "error": "Error"
+    }
+  }
+}

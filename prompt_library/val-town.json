@@ -1,0 +1,42 @@
+{
+  "vals": {
+    "types": {
+      "name": "@toowired/types",
+      "dependencies": ["zod"],
+      "public": true
+    },
+    "db": {
+      "name": "@toowired/db",
+      "dependencies": ["@toowired/types", "sqlite"],
+      "public": false
+    },
+    "executor": {
+      "name": "@toowired/executor",
+      "dependencies": ["@toowired/types", "@toowired/db"],
+      "public": false
+    },
+    "api": {
+      "name": "@toowired/api",
+      "dependencies": ["@toowired/types", "@toowired/db", "@toowired/executor"],
+      "public": true
+    }
+  },
+  "deployment": {
+    "order": ["types", "db", "executor", "api"],
+    "environments": {
+      "production": {
+        "apiKey": "env:VAL_TOWN_API_KEY",
+        "region": "us-east-1"
+      },
+      "development": {
+        "apiKey": "env:VAL_TOWN_DEV_KEY",
+        "region": "us-east-1"
+      }
+    },
+    "backup": {
+      "enabled": true,
+      "frequency": "daily",
+      "retention": "7 days"
+    }
+  }
+}

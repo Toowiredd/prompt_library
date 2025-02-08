@@ -1,0 +1,48 @@
+{
+  "development": {
+    "server": {
+      "port": 3000,
+      "host": "localhost",
+      "cors": {
+        "origin": "*",
+        "methods": ["GET", "POST", "PUT", "DELETE"]
+      }
+    },
+    "vite": {
+      "define": {
+        "__DEV__": "true",
+        "__VERSION__": "1.0.0"
+      },
+      "plugins": [
+        "@vitejs/plugin-solid",
+        "vite-plugin-pwa"
+      ],
+      "resolve": {
+        "alias": {
+          "@": "/src",
+          "@components": "/src/components",
+          "@utils": "/src/utils"
+        }
+      }
+    },
+    "tools": {
+      "devtools": true,
+      "logger": {
+        "level": "debug",
+        "pretty": true
+      },
+      "playground": {
+        "enabled": true,
+        "path": "/playground"
+      }
+    }
+  },
+  "mocks": {
+    "enabled": true,
+    "delay": 500,
+    "templates": {
+      "count": 10,
+      "seed": 42
+    }
+  }
+}

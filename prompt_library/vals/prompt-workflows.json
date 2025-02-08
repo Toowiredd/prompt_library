@@ -1,0 +1,41 @@
+{
+  "name": "@toowired/prompt-workflows",
+  "description": "Workflow engine for prompt chains",
+  "version": "1.0.0",
+  "created": "2025-02-08 11:32:47",
+  "author": {
+    "github": "toowiredd",
+    "valtown": "toowired"
+  },
+  "methods": {
+    "createWorkflow": {
+      "input": {
+        "steps": "WorkflowStep[]",
+        "conditions": "WorkflowCondition[]",
+        "errorHandling": "ErrorStrategy"
+      },
+      "output": "Workflow"
+    },
+    "executeWorkflow": {
+      "input": {
+        "workflowId": "string",
+        "input": "object",
+        "options": {
+          "parallel": "boolean",
+          "timeout": "number"
+        }
+      },
+      "output": "WorkflowResult"
+    },
+    "getWorkflowState": {
+      "input": {
+        "workflowId": "string"
+      },
+      "output": {
+        "status": "WorkflowStatus",
+        "currentStep": "string",
+        "results": "object[]"
+      }
+    }
+  }
+}

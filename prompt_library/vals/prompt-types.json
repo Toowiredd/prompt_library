@@ -1,0 +1,49 @@
+{
+  "name": "@toowired/prompt-types",
+  "description": "Type definitions for the prompt library system",
+  "version": "1.0.0",
+  "created": "2025-02-08 11:28:03",
+  "author": {
+    "github": "toowiredd",
+    "valtown": "toowired"
+  },
+  "types": {
+    "Prompt": {
+      "id": "string",
+      "title": "string",
+      "description": "string",
+      "template": "string",
+      "tags": "string[]",
+      "category": "string",
+      "metadata": {
+        "author": "string",
+        "created": "Date",
+        "updated": "Date",
+        "version": "string",
+        "complexity": "number",
+        "useCount": "number"
+      }
+    },
+    "PromptExecution": {
+      "id": "string",
+      "promptId": "string",
+      "input": "object",
+      "output": "string",
+      "duration": "number",
+      "timestamp": "Date",
+      "status": "'success' | 'error'",
+      "error?: Error"
+    },
+    "PromptCategory": {
+      "id": "string",
+      "name": "string",
+      "description": "string",
+      "color": "string"
+    },
+    "Error": {
+      "message": "string",
+      "code": "string",
+      "details?: object"
+    }
+  }
+}

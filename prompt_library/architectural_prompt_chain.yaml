@@ -1,0 +1,211 @@
+# Architectural Prompt Engineering Chain
+# Version: 1.0
+# Focus: Architecture, Dependencies, and API Design Analysis
+# Last Updated: 2025-02-08 10:07:54 UTC
+
+prompt_chain:
+  1_api_surface_analysis:
+    description: "Analyze public APIs and interfaces"
+    prompt: |
+      Analyze the API surface of the following code:
+      
+      ${CODE_CONTENT}
+      
+      Focus on:
+      1. What are the public interfaces and their contracts?
+      2. How consistent is the API design?
+      3. What are the API versioning patterns?
+      4. How are breaking changes handled?
+      
+      Format the response as:
+      {
+        "public_interfaces": [
+          {
+            "name": "Interface name",
+            "purpose": "What this interface provides",
+            "consumers": ["Types of consumers"],
+            "breaking_changes": ["Potential breaking changes"],
+            "versioning_strategy": "How versioning is handled"
+          }
+        ],
+        "api_consistency_score": "1-10 rating with explanation",
+        "improvement_opportunities": [
+          {
+            "area": "Area needing improvement",
+            "current_state": "Current API design",
+            "recommendation": "Suggested changes",
+            "impact": "Effect on consumers"
+          }
+        ]
+      }
+
+  2_dependency_graph_analysis:
+    description: "Analyze dependency relationships and coupling"
+    prompt: |
+      Analyze the dependency structure in this code:
+      
+      ${CODE_CONTENT}
+      ${API_SURFACE_ANALYSIS}
+      
+      Focus on:
+      1. What are the major dependencies between components?
+      2. Are there circular dependencies?
+      3. How modular is the system?
+      4. What is the dependency depth?
+      
+      Format the response as:
+      {
+        "dependency_graph": [
+          {
+            "module": "Module name",
+            "direct_dependencies": ["List of direct dependencies"],
+            "indirect_dependencies": ["List of indirect dependencies"],
+            "dependents": ["Modules that depend on this"],
+            "coupling_score": "1-10 rating of coupling"
+          }
+        ],
+        "circular_dependencies": [
+          {
+            "cycle": ["Modules in the cycle"],
+            "breaking_point": "Suggested point to break the cycle"
+          }
+        ],
+        "modularity_assessment": {
+          "score": "1-10 rating",
+          "bottlenecks": ["Areas of high coupling"],
+          "improvement_suggestions": ["Ways to increase modularity"]
+        }
+      }
+
+  3_architectural_pattern_analysis:
+    description: "Identify and evaluate architectural patterns"
+    prompt: |
+      Analyze the architectural patterns in use:
+      
+      ${CODE_CONTENT}
+      ${DEPENDENCY_GRAPH_ANALYSIS}
+      
+      Focus on:
+      1. What architectural patterns are present?
+      2. How well are they implemented?
+      3. Are patterns used consistently?
+      4. What alternative patterns might be better?
+      
+      Format the response as:
+      {
+        "identified_patterns": [
+          {
+            "pattern": "Pattern name",
+            "implementation_quality": "1-10 rating",
+            "consistency": "How consistently it's applied",
+            "alternatives": ["Potential alternative patterns"],
+            "tradeoffs": {
+              "benefits": ["Current benefits"],
+              "drawbacks": ["Current drawbacks"]
+            }
+          }
+        ],
+        "architectural_debt": [
+          {
+            "area": "Area of technical debt",
+            "impact": "Current impact on system",
+            "remediation": "How to address it"
+          }
+        ]
+      }
+
+  4_scaling_analysis:
+    description: "Evaluate system scalability characteristics"
+    prompt: |
+      Analyze the scalability characteristics:
+      
+      ${CODE_CONTENT}
+      ${ARCHITECTURAL_PATTERN_ANALYSIS}
+      
+      Focus on:
+      1. What are the scalability bottlenecks?
+      2. How does the system handle increased load?
+      3. What are the resource usage patterns?
+      4. Where are the scaling limits?
+      
+      Format the response as:
+      {
+        "scalability_assessment": {
+          "bottlenecks": [
+            {
+              "component": "Component name",
+              "limitation": "Nature of the bottleneck",
+              "impact": "Effect on system",
+              "mitigation": "How to address it"
+            }
+          ],
+          "resource_patterns": [
+            {
+              "resource": "Resource type",
+              "usage_pattern": "How it's used",
+              "scaling_characteristics": "How it scales"
+            }
+          ]
+        },
+        "scaling_recommendations": [
+          {
+            "target": "Area to improve",
+            "current_limit": "Current limitation",
+            "proposed_solution": "How to improve scalability",
+            "expected_outcome": "Projected improvement"
+          }
+        ]
+      }
+
+  5_integration_surface_analysis:
+    description: "Analyze system integration points"
+    prompt: |
+      Analyze the integration points in the system:
+      
+      ${CODE_CONTENT}
+      ${SCALING_ANALYSIS}
+      
+      Focus on:
+      1. What are the external integration points?
+      2. How robust are the integrations?
+      3. What is the error handling strategy?
+      4. How are integration changes managed?
+      
+      Format the response as:
+      {
+        "integration_points": [
+          {
+            "name": "Integration point name",
+            "type": "Type of integration",
+            "robustness_score": "1-10 rating",
+            "error_handling": {
+              "strategy": "How errors are handled",
+              "recovery": "Recovery mechanisms",
+              "monitoring": "How it's monitored"
+            }
+          }
+        ],
+        "integration_recommendations": [
+          {
+            "target": "Integration to improve",
+            "current_issues": ["Current problems"],
+            "proposed_changes": ["Suggested improvements"],
+            "expected_benefits": ["Anticipated benefits"]
+          }
+        ]
+      }
+
+chain_execution:
+  steps:
+    - api_surface: "Run 1_api_surface_analysis"
+    - dependencies: "Run 2_dependency_graph_analysis with api_surface results"
+    - patterns: "Run 3_architectural_pattern_analysis with dependencies results"
+    - scaling: "Run 4_scaling_analysis with patterns results"
+    - integration: "Run 5_integration_surface_analysis with scaling results"
+
+validation_criteria:
+  - "Each analysis must provide quantitative metrics where possible"
+  - "Recommendations must consider system constraints and existing patterns"
+  - "Integration points with existing code analysis chain must be identified"
+  - "Analysis must focus on architectural concerns rather than implementation details"
+  - "Scalability recommendations must be backed by concrete observations"

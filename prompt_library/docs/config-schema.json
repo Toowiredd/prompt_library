@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "timestamp": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}$",
+      "description": "UTC timestamp in YYYY-MM-DD HH:MM:SS format"
+    },
+    "author": {
+      "type": "object",
+      "properties": {
+        "github": {
+          "type": "string",
+          "enum": ["toowiredd"],
+          "description": "GitHub username must be exactly 'toowiredd'"
+        },
+        "valtown": {
+          "type": "string",
+          "enum": ["toowired"],
+          "description": "Val Town username must be exactly 'toowired'"
+        }
+      },
+      "required": ["github", "valtown"]
+    },
+    "valMethod": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "object",
+          "description": "Method input parameters and their types"
+        },
+        "output": {
+          "description": "Method return type"
+        },
+        "error": {
+          "description": "Method error type"
+        }
+      },
+      "required": ["output"]
+    }
+  }
+}

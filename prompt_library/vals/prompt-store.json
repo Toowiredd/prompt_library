@@ -1,0 +1,44 @@
+{
+  "name": "@toowired/prompt-store",
+  "description": "Storage system for prompts",
+  "version": "1.0.0",
+  "created": "2025-02-08 11:28:03",
+  "author": {
+    "github": "toowiredd",
+    "valtown": "toowired"
+  },
+  "dependencies": ["@toowired/prompt-types"],
+  "methods": {
+    "create": {
+      "input": "Prompt",
+      "output": "Prompt",
+      "error": "Error"
+    },
+    "read": {
+      "input": "string",
+      "output": "Prompt",
+      "error": "Error"
+    },
+    "update": {
+      "input": "Prompt",
+      "output": "Prompt",
+      "error": "Error"
+    },
+    "delete": {
+      "input": "string",
+      "output": "boolean",
+      "error": "Error"
+    },
+    "list": {
+      "input": {
+        "category?: string",
+        "tags?: string[]",
+        "author?: string",
+        "page?: number",
+        "limit?: number"
+      },
+      "output": "Prompt[]",
+      "error": "Error"
+    }
+  }
+}

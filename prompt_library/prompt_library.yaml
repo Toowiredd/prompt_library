@@ -1,0 +1,335 @@
+# Comprehensive Prompt Library
+# Version: 1.0
+# Last Updated: 2025-02-08 10:57:40 UTC
+# Author: Toowiredd
+
+categories:
+  documentation_prompts:
+    api_documentation:
+      description: "Generate comprehensive API documentation"
+      prompt: |
+        Review this API implementation and create documentation:
+        
+        ${CODE_CONTENT}
+        
+        Generate:
+        1. OpenAPI/Swagger specification
+        2. Usage examples
+        3. Authentication requirements
+        4. Rate limiting details
+        5. Error responses
+        
+        Format as:
+        {
+          "openapi": "3.0.0",
+          "info": {
+            "title": "",
+            "version": "",
+            "description": ""
+          },
+          "paths": {},
+          "components": {},
+          "examples": [],
+          "errors": []
+        }
+
+    typescript_type_docs:
+      description: "Generate TypeScript type documentation"
+      prompt: |
+        Document these TypeScript types and interfaces:
+        
+        ${TYPE_DEFINITIONS}
+        
+        Include:
+        1. Type purpose and usage
+        2. Generic parameters
+        3. Constraints and limitations
+        4. Usage examples
+        5. Related types
+        
+        Format as:
+        {
+          "types": [
+            {
+              "name": "",
+              "purpose": "",
+              "parameters": [],
+              "constraints": [],
+              "examples": [],
+              "related": []
+            }
+          ]
+        }
+
+  testing_prompts:
+    test_case_generator:
+      description: "Generate comprehensive test cases"
+      prompt: |
+        Generate test cases for this implementation:
+        
+        ${CODE_CONTENT}
+        
+        Consider:
+        1. Happy path scenarios
+        2. Edge cases
+        3. Error conditions
+        4. Performance scenarios
+        5. Security considerations
+        
+        Format as:
+        {
+          "testSuites": [
+            {
+              "description": "",
+              "cases": [
+                {
+                  "scenario": "",
+                  "inputs": {},
+                  "expectedOutput": {},
+                  "setup": [],
+                  "cleanup": []
+                }
+              ]
+            }
+          ]
+        }
+
+    integration_test_planner:
+      description: "Plan integration tests for system components"
+      prompt: |
+        Design integration tests for these components:
+        
+        ${COMPONENT_DEFINITIONS}
+        
+        Include:
+        1. Component interactions
+        2. Data flow tests
+        3. Error handling scenarios
+        4. Performance benchmarks
+        5. System boundaries
+        
+        Format as:
+        {
+          "integrationTests": [
+            {
+              "components": [],
+              "scenario": "",
+              "dataFlow": [],
+              "assertions": [],
+              "setup": {},
+              "teardown": {}
+            }
+          ]
+        }
+
+  security_prompts:
+    security_review:
+      description: "Perform security analysis of code"
+      prompt: |
+        Analyze this code for security vulnerabilities:
+        
+        ${CODE_CONTENT}
+        
+        Check for:
+        1. Input validation
+        2. Authentication/Authorization
+        3. Data exposure
+        4. Injection vulnerabilities
+        5. Crypto implementation
+        
+        Format as:
+        {
+          "vulnerabilities": [
+            {
+              "type": "",
+              "severity": "",
+              "location": "",
+              "description": "",
+              "mitigation": "",
+              "cwe_id": ""
+            }
+          ]
+        }
+
+    dependency_audit:
+      description: "Audit dependencies for security issues"
+      prompt: |
+        Review these dependencies for security concerns:
+        
+        ${DEPENDENCY_LIST}
+        
+        Analyze:
+        1. Known vulnerabilities
+        2. Maintenance status
+        3. Usage patterns
+        4. Alternative options
+        5. Update recommendations
+        
+        Format as:
+        {
+          "dependencies": [
+            {
+              "name": "",
+              "version": "",
+              "vulnerabilities": [],
+              "maintenance_score": 0,
+              "recommendations": []
+            }
+          ]
+        }
+
+  performance_prompts:
+    performance_optimization:
+      description: "Identify performance improvements"
+      prompt: |
+        Analyze this code for performance optimization:
+        
+        ${CODE_CONTENT}
+        
+        Focus on:
+        1. Algorithmic complexity
+        2. Memory usage
+        3. Async operations
+        4. Resource utilization
+        5. Caching opportunities
+        
+        Format as:
+        {
+          "optimizations": [
+            {
+              "location": "",
+              "current_performance": "",
+              "suggestion": "",
+              "expected_improvement": "",
+              "implementation_complexity": ""
+            }
+          ]
+        }
+
+    resource_usage_analysis:
+      description: "Analyze resource usage patterns"
+      prompt: |
+        Analyze resource usage in this implementation:
+        
+        ${CODE_CONTENT}
+        
+        Examine:
+        1. Memory allocation
+        2. CPU utilization
+        3. Network usage
+        4. Storage patterns
+        5. Resource leaks
+        
+        Format as:
+        {
+          "resources": [
+            {
+              "type": "",
+              "usage_pattern": "",
+              "bottlenecks": [],
+              "optimization_opportunities": [],
+              "recommendations": []
+            }
+          ]
+        }
+
+  accessibility_prompts:
+    accessibility_audit:
+      description: "Audit code for accessibility compliance"
+      prompt: |
+        Review this UI component for accessibility:
+        
+        ${COMPONENT_CODE}
+        
+        Check:
+        1. ARIA attributes
+        2. Keyboard navigation
+        3. Screen reader compatibility
+        4. Color contrast
+        5. Focus management
+        
+        Format as:
+        {
+          "accessibility_audit": {
+            "wcag_compliance": [],
+            "aria_issues": [],
+            "keyboard_issues": [],
+            "screen_reader_issues": [],
+            "recommendations": []
+          }
+        }
+
+  state_management_prompts:
+    state_flow_analysis:
+      description: "Analyze state management patterns"
+      prompt: |
+        Review this state management implementation:
+        
+        ${CODE_CONTENT}
+        
+        Analyze:
+        1. State flow
+        2. Side effects
+        3. Update patterns
+        4. Performance implications
+        5. Testing considerations
+        
+        Format as:
+        {
+          "state_analysis": {
+            "flow_diagram": [],
+            "side_effects": [],
+            "update_patterns": [],
+            "performance_impacts": [],
+            "testing_strategies": []
+          }
+        }
+
+  error_handling_prompts:
+    error_strategy:
+      description: "Design error handling strategy"
+      prompt: |
+        Design error handling for this implementation:
+        
+        ${CODE_CONTENT}
+        
+        Include:
+        1. Error types
+        2. Recovery strategies
+        3. Logging requirements
+        4. User feedback
+        5. Monitoring points
+        
+        Format as:
+        {
+          "error_strategy": {
+            "error_types": [],
+            "recovery_paths": [],
+            "logging_requirements": [],
+            "user_messaging": [],
+            "monitoring_plan": []
+          }
+        }
+
+integration:
+  chain_execution:
+    parallel_execution: true
+    dependency_graph:
+      documentation_prompts: []
+      testing_prompts: ["documentation_prompts"]
+      security_prompts: ["documentation_prompts"]
+      performance_prompts: ["testing_prompts"]
+      accessibility_prompts: ["documentation_prompts"]
+      state_management_prompts: ["documentation_prompts", "testing_prompts"]
+      error_handling_prompts: ["documentation_prompts", "testing_prompts"]
+
+versioning:
+  prompt_versioning: true
+  version_control: true
+  changelog_required: true
+  review_cycle: "monthly"
+
+metadata:
+  supported_languages: ["TypeScript", "JavaScript"]
+  integration_points: ["GitHub Actions", "VS Code", "CI/CD"]
+  required_tools: ["TypeScript Compiler", "ESLint", "Jest"]

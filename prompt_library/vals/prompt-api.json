@@ -1,0 +1,80 @@
+{
+  "name": "@toowired/prompt-api",
+  "description": "API endpoints for prompt library",
+  "version": "1.0.0",
+  "created": "2025-02-08 11:28:03",
+  "author": {
+    "github": "toowiredd",
+    "valtown": "toowired"
+  },
+  "dependencies": [
+    "@toowired/prompt-types",
+    "@toowired/prompt-store",
+    "@toowired/prompt-executor"
+  ],
+  "endpoints": {
+    "prompts": {
+      "GET /prompts": {
+        "description": "List all prompts",
+        "parameters": {
+          "category?": "string",
+          "tags?": "string[]",
+          "author?": "string",
+          "page?": "number",
+          "limit?": "number"
+        },
+        "response": "Prompt[]"
+      },
+      "POST /prompts": {
+        "description": "Create a new prompt",
+        "body": "Prompt",
+        "response": "Prompt"
+      },
+      "GET /prompts/:id": {
+        "description": "Get a specific prompt",
+        "parameters": {
+          "id": "string"
+        },
+        "response": "Prompt"
+      },
+      "PUT /prompts/:id": {
+        "description": "Update a prompt",
+        "parameters": {
+          "id": "string"
+        },
+        "body": "Prompt",
+        "response": "Prompt"
+      },
+      "DELETE /prompts/:id": {
+        "description": "Delete a prompt",
+        "parameters": {
+          "id": "string"
+        },
+        "response": "boolean"
+      }
+    },
+    "executions": {
+      "POST /execute": {
+        "description": "Execute a prompt",
+        "body": {
+          "promptId": "string",
+          "variables": "object",
+          "options?": {
+            "timeout?": "number",
+            "maxTokens?": "number",
+            "temperature?": "number"
+          }
+        },
+        "response": "PromptExecution"
+      },
+      "GET /history/:promptId": {
+        "description": "Get execution history",
+        "parameters": {
+          "promptId": "string",
+          "limit?": "number"
+        },
+        "response": "PromptExecution[]"
+      }
+    }
+  }
+}

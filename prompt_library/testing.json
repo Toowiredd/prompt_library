@@ -1,0 +1,31 @@
+{
+  "unit": {
+    "framework": "vitest",
+    "coverage": {
+      "provider": "c8",
+      "reporter": ["text", "lcov"],
+      "threshold": {
+        "lines": 80,
+        "functions": 80,
+        "branches": 70
+      }
+    },
+    "setupFiles": ["./src/test/setup.ts"],
+    "environment": "happy-dom"
+  },
+  "e2e": {
+    "framework": "playwright",
+    "browsers": ["chromium", "firefox"],
+    "baseURL": "http://localhost:3000",
+    "screenshot": "only-on-failure",
+    "video": "retain-on-failure"
+  },
+  "ci": {
+    "runner": "github-actions",
+    "triggers": ["push", "pull_request"],
+    "matrix": {
+      "node": ["16", "18"],
+      "os": ["ubuntu-latest"]
+    }
+  }
+}

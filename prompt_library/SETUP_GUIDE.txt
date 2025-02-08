@@ -1,0 +1,112 @@
+PROMPT LIBRARY SETUP GUIDE
+=========================
+Last Updated: 2025-02-08 11:38:47
+Author: Toowiredd
+Repository: Toowiredd/prompt_library (ID: 929360050)
+
+Prerequisites
+------------
+1. Node.js (version 18 or higher)
+   - Download from: https://nodejs.org/
+   - Verify with: node --version
+
+2. Git
+   - Download from: https://git-scm.com/
+   - Verify with: git --version
+
+3. Val Town Account & API Key
+   - Create account at: https://val.town
+   - Get API key from: https://val.town/settings
+   - Save your API key securely
+
+Step 1: Clone Repository
+-----------------------
+1. Open your terminal
+2. Run: git clone https://github.com/Toowiredd/prompt_library.git
+3. Run: cd prompt_library
+
+Step 2: Install Dependencies
+--------------------------
+1. Install all required packages:
+   npm install
+
+2. Verify installation:
+   npm list
+   
+3. Check for any error messages in red
+
+Step 3: Environment Setup
+------------------------
+1. Create environment file:
+   cp .env.example .env
+
+2. Edit .env file:
+   - Open .env in your preferred text editor
+   - Add your Val Town API key:
+     VAL_TOWN_API_KEY=your_api_key_here
+   - Save the file
+
+Step 4: Validation
+-----------------
+1. Run configuration validation:
+   npm run validate-all
+
+2. Expected output:
+   - ✅ Valid configuration: [file paths]
+   - ✅ Valid timestamps in [file paths]
+
+Step 5: Initialize Vals
+----------------------
+1. Run initialization script:
+   npm run init
+
+2. Watch console output for:
+   - ✅ Created val: @toowired/prompt-types
+   - ✅ Created val: @toowired/prompt-store
+   - [etc for all vals]
+
+Verification Steps
+-----------------
+1. Check Val Town dashboard:
+   - Visit: https://val.town/@toowired
+   - Verify all vals are created
+   - Check for any error messages
+
+2. Run test suite:
+   npm run test
+
+Troubleshooting
+--------------
+1. If validation fails:
+   - Check .env file configuration
+   - Verify API key is correct
+   - Run: npm run check-env
+
+2. If initialization fails:
+   - Check network connection
+   - Verify Val Town API status
+   - Check console for specific error messages
+
+3. Common errors:
+   - "Invalid API key": Re-copy key from Val Town settings
+   - "Permission denied": Check Val Town account permissions
+   - "Network error": Check internet connection
+
+Directory Structure
+------------------
+prompt_library/
+├── scripts/          - Setup and validation scripts
+├── vals/            - Val configurations
+├── docs/            - Documentation files
+└── config/          - Project configuration
+
+Support
+-------
+- GitHub Issues: https://github.com/Toowiredd/prompt_library/issues
+- Val Town Discord: https://discord.gg/val-town
+- Documentation: See /docs directory
+
+Note: Always run validation before deploying any changes:
+npm run validate-all
+
+Remember to never commit your .env file or expose your API key.

@@ -1,0 +1,61 @@
+{
+  "system": {
+    "name": "prompt_library",
+    "version": "1.0.0",
+    "timestamps": {
+      "created": "2025-02-08 11:25:26",
+      "updated": "2025-02-08 11:25:26",
+      "lastSync": "2025-02-08 11:25:26"
+    },
+    "author": {
+      "name": "Toowiredd",
+      "github": "Toowiredd",
+      "email": ""
+    },
+    "repository": {
+      "name": "prompt_library",
+      "owner": "Toowiredd",
+      "id": 929360050,
+      "url": "https://github.com/Toowiredd/prompt_library"
+    }
+  },
+  "features": {
+    "enabled": [
+      "pwa",
+      "offline",
+      "push-notifications",
+      "background-sync",
+      "val-town-integration"
+    ],
+    "experimental": [
+      "ai-suggestions",
+      "collaborative-editing"
+    ]
+  },
+  "integrations": {
+    "valTown": {
+      "enabled": true,
+      "apiKeyEnv": "VAL_TOWN_API_KEY",
+      "namespace": "@toowired"
+    },
+    "github": {
+      "enabled": true,
+      "tokenEnv": "GITHUB_TOKEN",
+      "scope": ["repo", "user"]
+    }
+  },
+  "security": {
+    "authentication": {
+      "providers": ["github"],
+      "sessionDuration": "7d",
+      "rateLimit": {
+        "window": "15m",
+        "max": 100
+      }
+    },
+    "encryption": {
+      "algorithm": "AES-256-GCM",
+      "keyRotation": "30d"
+    }
+  }
+}

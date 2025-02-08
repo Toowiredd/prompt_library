@@ -1,0 +1,55 @@
+{
+  "name": "@toowired/prompt-optimizer",
+  "description": "Optimization engine for prompts",
+  "version": "1.0.0",
+  "created": "2025-02-08 11:32:47",
+  "author": {
+    "github": "toowiredd",
+    "valtown": "toowired"
+  },
+  "methods": {
+    "analyze": {
+      "input": {
+        "promptId": "string",
+        "metrics": {
+          "performance": "boolean",
+          "tokens": "boolean",
+          "quality": "boolean"
+        }
+      },
+      "output": {
+        "score": "number",
+        "metrics": "object",
+        "suggestions": "string[]"
+      }
+    },
+    "estimateCost": {
+      "input": {
+        "promptId": "string",
+        "usage": {
+          "daily": "number",
+          "model": "string"
+        }
+      },
+      "output": {
+        "daily": "number",
+        "monthly": "number",
+        "breakdown": "object"
+      }
+    },
+    "optimizeTokens": {
+      "input": {
+        "promptId": "string",
+        "target": {
+          "maxTokens": "number",
+          "preserveIntent": "boolean"
+        }
+      },
+      "output": {
+        "optimizedPrompt": "string",
+        "tokenReduction": "number",
+        "qualityImpact": "number"
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "@toowired/prompt-suggestions",
+  "description": "Smart suggestion system for prompts",
+  "version": "1.0.0",
+  "created": "2025-02-08 11:32:47",
+  "author": {
+    "github": "toowiredd",
+    "valtown": "toowired"
+  },
+  "methods": {
+    "getSimilar": {
+      "input": {
+        "promptId": "string",
+        "limit": "number",
+        "threshold": "number"
+      },
+      "output": "Prompt[]"
+    },
+    "analyzeUsage": {
+      "input": {
+        "promptId": "string",
+        "timeframe": "string"
+      },
+      "output": {
+        "patterns": "object[]",
+        "frequency": "object",
+        "correlations": "object"
+      }
+    },
+    "getOptimizations": {
+      "input": {
+        "promptId": "string"
+      },
+      "output": {
+        "suggestions": "string[]",
+        "rationale": "string[]",
+        "impact": "number[]"
+      }
+    }
+  }
+}

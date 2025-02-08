@@ -1,0 +1,87 @@
+{
+  "logging": {
+    "level": "info",
+    "format": "json",
+    "destinations": [
+      {
+        "type": "console",
+        "level": "debug"
+      },
+      {
+        "type": "file",
+        "path": "logs/app.log",
+        "level": "info",
+        "rotation": {
+          "size": "10MB",
+          "keep": 5
+        }
+      }
+    ]
+  },
+  "metrics": {
+    "collection": {
+      "interval": "1m",
+      "retention": "7d"
+    },
+    "gauges": [
+      {
+        "name": "active_users",
+        "help": "Number of active users"
+      },
+      {
+        "name": "template_executions",
+        "help": "Number of template executions",
+        "labels": ["template_id", "status"]
+      }
+    ],
+    "histograms": [
+      {
+        "name": "execution_duration",
+        "help": "Template execution duration",
+        "buckets": [0.1, 0.5, 1, 2, 5]
+      }
+    ]
+  },
+  "analytics": {
+    "events": [
+      {
+        "name": "template_created",
+        "attributes": ["template_id", "author", "complexity"]
+      },
+      {
+        "name": "template_executed",
+        "attributes": ["template_id", "duration", "status"]
+      },
+      {
+        "name": "error",
+        "attributes": ["type", "message", "stack"]
+      }
+    ]
+  },
+  "alerts": {
+    "rules": [
+      {
+        "name": "high_error_rate",
+        "condition": "error_rate > 0.05",
+        "window": "5m",
+        "actions": ["slack", "email"]
+      },
+      {
+        "name": "low_performance",
+        "condition": "p95_latency > 2000",
+        "window": "10m",
+        "actions": ["slack"]
+      }
+    ],
+    "channels": {
+      "slack": {
+        "webhook": "env:SLACK_WEBHOOK_URL",
+        "channel": "#alerts"
+      },
+      "email": {
+        "to": ["admin@prompt-library.dev"],
+        "from": "alerts@prompt-library.dev"
+      }
+    }
+  }
+}

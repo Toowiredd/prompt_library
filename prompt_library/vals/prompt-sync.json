@@ -1,0 +1,51 @@
+{
+  "name": "@toowired/prompt-sync",
+  "description": "Synchronization system for prompt library",
+  "version": "1.0.0",
+  "created": "2025-02-08 11:28:03",
+  "author": {
+    "github": "toowiredd",
+    "valtown": "toowired"
+  },
+  "dependencies": [
+    "@toowired/prompt-types",
+    "@toowired/prompt-store"
+  ],
+  "methods": {
+    "sync": {
+      "input": {
+        "direction": "'push' | 'pull' | 'both'",
+        "options": {
+          "force": "boolean",
+          "dryRun": "boolean"
+        }
+      },
+      "output": {
+        "success": "boolean",
+        "changes": {
+          "added": "number",
+          "updated": "number",
+          "deleted": "number",
+          "conflicts": "number"
+        }
+      }
+    },
+    "resolveConflict": {
+      "input": {
+        "promptId": "string",
+        "resolution": "'local' | 'remote' | 'merge'",
+        "mergeStrategy?: 'latest' | 'manual'"
+      },
+      "output": {
+        "success": "boolean",
+        "result?: Prompt"
+      }
+    }
+  },
+  "settings": {
+    "syncInterval": "5m",
+    "retryAttempts": 3,
+    "retryDelay": "exponential",
+    "conflictResolution": "manual"
+  }
+}

@@ -1,0 +1,67 @@
+# Prompt Engineering Chain for Code Analysis
+# Version: 1.0
+# Focus: Pure prompt engineering without external dependencies
+# Last Updated: 2025-02-08 09:17:46 UTC
+
+prompt_chain:
+  1_initial_analysis:
+    description: "Initial code understanding and structure analysis"
+    prompt: |
+      Analyze the following code and provide a detailed breakdown:
+      
+      ${CODE_CONTENT}
+      
+      Focus on:
+      1. What is the main purpose of this code?
+      2. What are the key components and their relationships?
+      3. How is data flowing through the system?
+      4. What programming patterns are being used?
+      
+      Provide your analysis in this format:
+      {
+        "purpose": "Clear description of the code's main functionality",
+        "components": [
+          {
+            "name": "Component name",
+            "responsibility": "What this component does",
+            "relationships": ["Other components it interacts with"]
+          }
+        ],
+        "data_flow": [
+          "Step-by-step description of how data moves through the system"
+        ],
+        "patterns": [
+          {
+            "pattern": "Name of the pattern",
+            "usage": "How it's being used",
+            "appropriateness": "Whether this is an appropriate use"
+          }
+        ]
+      }
+
+  2_complexity_assessment:
+    # ... [Previous content remains the same]
+
+  3_improvement_ideation:
+    # ... [Previous content remains the same]
+
+  4_refactoring_plan:
+    # ... [Previous content remains the same]
+
+  5_implementation_guidance:
+    # ... [Previous content remains the same]
+
+chain_execution:
+  steps:
+    - analyze: "Run 1_initial_analysis"
+    - assess: "Run 2_complexity_assessment with 1_initial_analysis results"
+    - improve: "Run 3_improvement_ideation with 2_complexity_assessment results"
+    - plan: "Run 4_refactoring_plan with 3_improvement_ideation results"
+    - implement: "Run 5_implementation_guidance with 4_refactoring_plan results"
+
+validation_criteria:
+  - "Each prompt should receive complete, well-formatted responses"
+  - "Each step should build logically on previous steps"
+  - "Suggestions should be specific and actionable"
+  - "All proposed changes should maintain existing functionality"
+  - "Security and performance implications should be considered"

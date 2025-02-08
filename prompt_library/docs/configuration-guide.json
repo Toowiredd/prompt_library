@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "title": "Prompt Library Configuration Guide",
+    "lastUpdated": "2025-02-08 11:36:20",
+    "author": {
+      "github": "toowiredd",
+      "valtown": "toowired"
+    }
+  },
+  "configurations": {
+    "project-config.json": {
+      "purpose": "Core project configuration and setup instructions",
+      "required": true,
+      "validation": "strict",
+      "fields": {
+        "name": "Project name (must match package.json)",
+        "version": "Semantic version number",
+        "created": "UTC timestamp of project creation",
+        "author": "GitHub and Val Town usernames",
+        "repository": "Git repository details",
+        "structure": "Project directory structure",
+        "setup": "Installation and initialization steps"
+      }
+    },
+    "env.config.json": {
+      "purpose": "Environment variable configuration",
+      "required": true,
+      "validation": "strict",
+      "fields": {
+        "required": "Required environment variables",
+        "optional": "Optional environment variables with defaults"
+      }
+    },
+    "vals/*.json": {
+      "purpose": "Val Town function configurations",
+      "required": true,
+      "validation": "strict",
+      "fields": {
+        "name": "Val name with @toowired namespace",
+        "description": "Clear description of val's purpose",
+        "version": "Semantic version number",
+        "created": "UTC timestamp of val creation",
+        "author": "GitHub and Val Town usernames",
+        "methods": "Val's exposed methods with types"
+      }
+    }
+  },
+  "bestPractices": {
+    "timestamps": "Always use UTC in YYYY-MM-DD HH:MM:SS format",
+    "versioning": "Follow semantic versioning (MAJOR.MINOR.PATCH)",
+    "documentation": "Document all fields and methods",
+    "validation": "Run validation before deployment",
+    "dependencies": "Document and validate all dependencies"
+  },
+  "validation": {
+    "command": "npm run validate",
+    "frequency": "Pre-commit and pre-deployment",
+    "errorHandling": "Fails CI/CD if validation fails"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "root": {
+    "scripts": {
+      "description": "Initialization and deployment scripts",
+      "files": [
+        "init.ts",
+        "check-env.ts",
+        "deploy-vals.ts",
+        "config.ts"
+      ]
+    },
+    "vals": {
+      "description": "Val Town JSON configurations",
+      "files": [
+        "prompt-types.json",
+        "prompt-store.json",
+        "prompt-executor.json",
+        "prompt-api.json",
+        "prompt-sync.json",
+        "prompt-cache.json",
+        "prompt-suggestions.json",
+        "prompt-testing.json",
+        "prompt-docs.json",
+        "prompt-workflows.json",
+        "prompt-search.json",
+        "prompt-optimizer.json"
+      ]
+    },
+    "config": {
+      "description": "Project configuration files",
+      "files": [
+        "project-config.json",
+        "env.config.json",
+        "package.config.json",
+        "directory.config.json"
+      ]
+    }
+  }
+}

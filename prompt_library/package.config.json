@@ -1,0 +1,32 @@
+{
+  "name": "prompt-library",
+  "version": "1.0.0",
+  "description": "AI Prompt Management System with Val Town integration",
+  "type": "module",
+  "scripts": {
+    "init": "ts-node scripts/init.ts",
+    "validate": "ts-node scripts/validate-config.ts",
+    "check-timestamps": "ts-node scripts/check-timestamps.ts",
+    "validate-all": "npm run validate && npm run check-timestamps",
+    "precommit": "npm run validate-all",
+    "predeploy": "npm run validate-all"
+  },
+  "dependencies": {
+    "@val-town/api": "^0.1.0",
+    "dotenv": "^16.0.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "ts-node": "^10.0.0",
+    "vitest": "^1.0.0",
+    "eslint": "^8.0.0",
+    "husky": "^8.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "name": "Prompt Library Setup Guide",
+  "lastUpdated": "2025-02-08 11:37:36",
+  "author": "Toowiredd",
+  "steps": {
+    "1_prerequisites": {
+      "title": "Prerequisites",
+      "items": [
+        {
+          "name": "Node.js",
+          "version": ">=18.0.0",
+          "link": "https://nodejs.org/"
+        },
+        {
+          "name": "Git",
+          "link": "https://git-scm.com/"
+        },
+        {
+          "name": "Val Town Account",
+          "link": "https://val.town"
+        },
+        {
+          "name": "Val Town API Key",
+          "instructions": "Get from https://val.town/settings"
+        }
+      ]
+    },
+    "2_clone_repository": {
+      "title": "Clone Repository",
+      "commands": [
+        {
+          "command": "git clone https://github.com/Toowiredd/prompt_library.git",
+          "description": "Clone the repository"
+        },
+        {
+          "command": "cd prompt_library",
+          "description": "Navigate to project directory"
+        }
+      ]
+    },
+    "3_install_dependencies": {
+      "title": "Install Dependencies",
+      "commands": [
+        {
+          "command": "npm install",
+          "description": "Install all required packages"
+        }
+      ],
+      "verification": {
+        "command": "npm list",
+        "expected": "Should show all dependencies installed without errors"
+      }
+    },
+    "4_configure_environment": {
+      "title": "Configure Environment",
+      "steps": [
+        {
+          "command": "cp .env.example .env",
+          "description": "Create environment file"
+        },
+        {
+          "instruction": "Edit .env file an

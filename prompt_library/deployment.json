@@ -1,0 +1,42 @@
+{
+  "environments": {
+    "production": {
+      "url": "https://prompt-library.vercel.app",
+      "branch": "main",
+      "auto_deploy": true
+    },
+    "staging": {
+      "url": "https://staging.prompt-library.vercel.app",
+      "branch": "develop",
+      "auto_deploy": true
+    }
+  },
+  "providers": {
+    "vercel": {
+      "framework": "vite",
+      "regions": ["iad1"],
+      "env": [
+        "VAL_TOWN_API_KEY",
+        "VAPID_PUBLIC_KEY",
+        "VAPID_PRIVATE_KEY"
+      ]
+    },
+    "github": {
+      "pages": {
+        "enabled": false,
+        "branch": "gh-pages",
+        "directory": "dist"
+      }
+    }
+  },
+  "monitoring": {
+    "sentry": {
+      "dsn": "env:SENTRY_DSN",
+      "environment": "process.env.NODE_ENV"
+    },
+    "analytics": {
+      "provider": "plausible",
+      "domain": "prompt-library.vercel.app"
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "ui": {
+    "Header": {
+      "path": "src/ui/components/Header.tsx",
+      "features": [
+        "theme-switching",
+        "notifications",
+        "push-subscriptions"
+      ],
+      "props": {
+        "title": "string",
+        "showNotifications": "boolean",
+        "onThemeChange": "(theme: 'light' | 'dark') => void"
+      },
+      "state": {
+        "isDark": "boolean",
+        "notifications": "Notification[]"
+      }
+    },
+    "PromptCard": {
+      "path": "src/ui/components/PromptCard.tsx",
+      "features": [
+        "animation",
+        "template-display",
+        "complexity-indicator",
+        "tags"
+      ],
+      "props": {
+        "template": "PromptTemplate",
+        "onClick": "(template: PromptTemplate) => void"
+      },
+      "animations": {
+        "hover": {
+          "scale": 1.02,
+          "duration": 0.2
+        }
+      }
+    },
+    "ActionButton": {
+      "path": "src/ui/components/ActionButton.tsx",
+      "features": [
+        "pwa-install",
+        "share",
+        "floating-menu"
+      ],
+      "props": {
+        "actions": "Action[]",
+        "position": "'bottom-right' | 'bottom-left'"
+      }
+    }
+  },
+  "layouts": {
+    "MainLayout": {
+      "path": "src/layouts/MainLayout.tsx",
+      "slots": ["header", "sidebar", "main", "footer"]
+    },
+    "DashboardLayout": {
+      "path": "src/layouts/DashboardLayout.tsx",
+      "extends": "MainLayout",
+      "features": ["responsive-sidebar"]
+    }
+  }
+}

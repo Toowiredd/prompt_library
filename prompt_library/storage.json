@@ -1,0 +1,54 @@
+{
+  "local": {
+    "type": "indexedDB",
+    "database": "prompt_library",
+    "version": 1,
+    "stores": {
+      "templates": {
+        "keyPath": "id",
+        "indexes": [
+          { "name": "author", "keyPath": "author" },
+          { "name": "tags", "keyPath": "tags", "multiEntry": true },
+          { "name": "createdAt", "keyPath": "createdAt" }
+        ]
+      },
+      "executions": {
+        "keyPath": "id",
+        "indexes": [
+          { "name": "templateId", "keyPath": "templateId" },
+          { "name": "executedAt", "keyPath": "executedAt" }
+        ]
+      }
+    }
+  },
+  "remote": {
+    "valTown": {
+      "namespace": "@toowired",
+      "collections": {
+        "templates": {
+          "val": "@toowired/templates",
+          "sync": true,
+          "syncInterval": "5m"
+        },
+        "executions": {
+          "val": "@toowired/executions",
+          "sync": true,
+          "syncInterval": "1m"
+        }
+      }
+    }
+  },
+  "sync": {
+    "strategy": "lastWriteWins",
+    "conflict": {
+      "resolution": "manual",
+      "notification": true
+    },
+    "queue": {
+      "retry": {
+        "attempts": 3,
+        "backoff": "exponential"
+      }
+    }
+  }
+}

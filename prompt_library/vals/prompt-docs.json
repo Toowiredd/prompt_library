@@ -1,0 +1,36 @@
+{
+  "name": "@toowired/prompt-docs",
+  "description": "Documentation system for prompts",
+  "version": "1.0.0",
+  "created": "2025-02-08 11:32:47",
+  "author": {
+    "github": "toowiredd",
+    "valtown": "toowired"
+  },
+  "methods": {
+    "generateDocs": {
+      "input": {
+        "promptId": "string",
+        "format": "'markdown' | 'html' | 'json'"
+      },
+      "output": "string"
+    },
+    "updateChangelog": {
+      "input": {
+        "promptId": "string",
+        "version": "string",
+        "changes": "string[]"
+      },
+      "output": "boolean"
+    },
+    "getBestPractices": {
+      "input": {
+        "category": "string"
+      },
+      "output": {
+        "guidelines": "string[]",
+        "examples": "object[]"
+      }
+    }
+  }
+}

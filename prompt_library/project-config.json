@@ -1,0 +1,45 @@
+{
+  "name": "prompt-library",
+  "version": "1.0.0",
+  "created": "2025-02-08 11:35:21",
+  "author": {
+    "github": "toowiredd",
+    "valtown": "toowired"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Toowiredd/prompt_library",
+    "id": 929360050
+  },
+  "structure": {
+    "directories": {
+      "scripts": "./scripts",
+      "vals": "./vals",
+      "docs": "./docs"
+    }
+  },
+  "setup": {
+    "steps": [
+      {
+        "order": 1,
+        "name": "Clone Repository",
+        "command": "git clone https://github.com/Toowiredd/prompt_library.git"
+      },
+      {
+        "order": 2,
+        "name": "Install Dependencies",
+        "command": "npm install"
+      },
+      {
+        "order": 3,
+        "name": "Configure Environment",
+        "command": "cp .env.example .env"
+      },
+      {
+        "order": 4,
+        "name": "Initialize Vals",
+        "command": "npm run init"
+      }
+    ]
+  }
+}
