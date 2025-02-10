@@ -42,19 +42,22 @@ Write-Host "Creating documentation files..." -ForegroundColor Yellow
 
 # SETUP_GUIDE.txt
 $setupGuide = @"
-[Previous SETUP_GUIDE.txt content]
+# Setup Guide
+This is the setup guide for the Prompt Library.
 "@
 Set-Content -Path "docs/setup/SETUP_GUIDE.txt" -Value $setupGuide
 
 # ASCII_SETUP_GUIDE.txt
 $asciiGuide = @"
-[Previous ASCII_SETUP_GUIDE.txt content]
+# ASCII Setup Guide
+This is the ASCII setup guide for the Prompt Library.
 "@
 Set-Content -Path "docs/setup/ASCII_SETUP_GUIDE.txt" -Value $asciiGuide
 
 # COMPREHENSIVE_GUIDE.txt
 $comprehensiveGuide = @"
-[Previous COMPREHENSIVE_GUIDE.txt content]
+# Comprehensive Guide
+This is the comprehensive guide for the Prompt Library.
 "@
 Set-Content -Path "docs/guides/COMPREHENSIVE_GUIDE.txt" -Value $comprehensiveGuide
 
@@ -108,7 +111,8 @@ Date: 2025-02-08 11:47:30
 Author: @Toowiredd"
 
     Write-Host "Successfully committed documentation!" -ForegroundColor Green
-} catch {
+}
+catch {
     Write-Host "Error during Git operations: $_" -ForegroundColor Red
 }
 

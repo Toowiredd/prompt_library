@@ -1,0 +1,6 @@
+Pillow==10.1.0
+pygments==2.17.2
+html2image==2.0.3
+networkx==3.2.1
+matplotlib==3.8.2
+PyQt6==6.4.0
